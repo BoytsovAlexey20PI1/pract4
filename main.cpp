@@ -21,7 +21,7 @@ int main ()
 
         if (op != 0) {
             cout << "\nВыберите способ: (1 - AES-256, 2 - DES): ";
-            cin >> cip;
+            cin >> sp;
         }
 
         if (op > 2) {
@@ -30,16 +30,16 @@ int main ()
 
         else if (op > 0) {
             cout << "\nУкажите путь изначального файла: ";
-            cin >> FIn;
+            cin >> fin;
 
             cout << "\nУкажите путь конечного файла: ";
-            cin >> FOut;
+            cin >> fout;
 
             cout << "\nВведите пароль: ";
             cin >> Pass;
 
-            if (cip == 1) {
-                AES_Cryptor aes(FIn, FOut, Pass);
+            if (sp == 1) {
+                AES_Cryptor aes(fin, fout, Pass);
 
                 if (op == 1) {
                     if (aes.AES_Encrypt())
@@ -50,13 +50,13 @@ int main ()
                     if (aes.AES_Decrypt())
                         cout << "Успешно декодировано" << endl;
                     else
-                        cout << "Успешно декодировано" << endl;
+                        cout << "Декодирование не удалось" << endl;
                 }
             }
 
 
-            else if (cip == 2) {
-                DES_Cryptor des(FIn, FOut, Pass);
+            else if (sp == 2) {
+                DES_Cryptor des(fin, fout, Pass);
 
                 if (op == 1) {
                     if (des.DES_Encrypt())
@@ -67,7 +67,7 @@ int main ()
                     if (des.DES_Decrypt())
                         cout << "Успешно декодировано" << endl;
                     else
-                        cout << "Успешно декодировано" << endl;
+                        cout << "Декодирование не удалось" << endl;
                 }
             } else {
                 cerr << "Error! Incorrect algorithm number!!!\n";
