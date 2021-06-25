@@ -73,7 +73,7 @@ bool AES_Cryptor::AES_Decrypt ()
     }
 
     else {
-    //cerr << "Неверный IV файл" << endl;
+    cerr << "Неверный IV файл" << endl;
         pool.close();
         return false;
     }
