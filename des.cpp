@@ -78,7 +78,7 @@ bool DES_Cryptor::DES_Decrypt ()
 
   else
   {
-    //cerr << "Неверный IV файл" << endl;
+    cerr << "Неверный IV файл" << endl;
     pool.close();
     return false;
   }
